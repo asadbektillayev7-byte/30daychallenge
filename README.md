@@ -1,28 +1,26 @@
 # 30daychallenge
 
-My Python learning journey through the [BuildCored Orcas curriculum](https://buildcored.com/projects/): one hour of learning and building each day, with all projects in this repository.
+My 30-day Python learning challenge: one hour of practice each day, building small interactive projects and keeping them together in one repository.
 
 ## Projects
 
 | Project | Folder | Progress |
 | --- | --- | --- |
 | Setup | [00-setup](00-setup/) | First Python program run and uploaded |
-| 01 — RockLook | [01-rocklook](01-rocklook/) | Webcam preview uploaded; head-tracking and music prototype built locally, awaiting upload |
-| 02 — AirCanvas | `02-aircanvas/` | Next project |
+| 01 — RockLook | [01-rocklook](01-rocklook/) | Head-tracking and music-control prototype uploaded |
+| 02 — AirCanvas | [02-aircanvas](02-aircanvas/) | Pinch-drawing prototype and sample image uploaded |
 
 ## Project 01 — RockLook
 
 RockLook uses a webcam to estimate head movement and control a local audio file.
 
-The local prototype:
+Features:
 - Detects face landmarks and shows the webcam feed.
 - Calibrates a neutral head position when **C** is pressed.
 - Plays music when the head tilts down.
 - Pauses music when the head returns to a straight/up position or no face is detected.
 - Resumes paused music without restarting the track.
 - Closes the camera and audio when **Q** is pressed.
-
-**Source status:** the GitHub copy currently contains the initial webcam preview. The newer head-tracking/music version is saved locally and still needs to be committed and pushed. The controls below describe that newer version.
 
 ### Tools
 
@@ -67,8 +65,20 @@ This is a simple head-movement prototype, not eye-gaze tracking. Lighting, camer
 - Connecting a detected movement to audio playback.
 - Saving progress with Git commits and GitHub pushes.
 
-## Next — AirCanvas
+## Project 02 — AirCanvas
 
-Draw using the webcam: pinch the thumb and index finger together to draw, and separate them to lift the pen. We will build it in `02-aircanvas/` inside this repository.
+A hand-controlled drawing app. Pinch the thumb and index fingertips together to draw, then separate them to move without leaving a line.
 
-Reference: [Samira Ikromova's Day 2 AirCanvas example](https://github.com/samiraikromova/AirCanvas-BuildCored-Orcas-Day2).
+- Four brush colors, selected with **1–4**.
+- **C** clears the drawing.
+- **S** saves the canvas as `drawing.png`.
+- **Q** closes the app.
+
+Run from the repository root:
+
+```bash
+cd 02-aircanvas
+.venv/bin/python main.py
+```
+
+See the [AirCanvas README](02-aircanvas/README.md) for installation, gesture instructions, troubleshooting, and an example drawing.
