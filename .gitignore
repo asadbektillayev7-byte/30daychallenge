@@ -219,3 +219,5 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 01-rocklook/music.wav
+03-volumeknuckle/music.mp3
+03-volumeknuckle/music.wav

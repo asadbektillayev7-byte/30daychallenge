@@ -9,6 +9,7 @@ My 30-day Python learning challenge: one hour of practice each day, building sma
 | Setup | [00-setup](00-setup/) | First Python program run and uploaded |
 | 01 — RockLook | [01-rocklook](01-rocklook/) | Head-tracking and music-control prototype uploaded |
 | 02 — AirCanvas | [02-aircanvas](02-aircanvas/) | Pinch-drawing prototype and sample image uploaded |
+| 03 — VolumeKnuckle | [03-volumeknuckle](03-volumeknuckle/) | Fist-controlled Mac volume with local music playback |
 
 ## Project 01 — RockLook
 
@@ -82,3 +83,9 @@ cd 02-aircanvas
 ```
 
 See the [AirCanvas README](02-aircanvas/README.md) for installation, gesture instructions, troubleshooting, and an example drawing.
+
+## Project 03 — VolumeKnuckle
+
+Raise a closed fist to increase your Mac’s output volume and lower it to decrease it. The app starts in preview mode. Press **E** to enable gesture control, **M** to play or pause your local music, and **Q** to quit.
+
+See the [VolumeKnuckle README](03-volumeknuckle/README.md) for setup, audio-file requirements, controls, and troubleshooting.
