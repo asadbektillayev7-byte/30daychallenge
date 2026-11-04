@@ -10,6 +10,7 @@ My 30-day Python learning challenge: one hour of practice each day, building sma
 | 01 — RockLook | [01-rocklook](01-rocklook/) | Head-tracking and music-control prototype uploaded |
 | 02 — AirCanvas | [02-aircanvas](02-aircanvas/) | Pinch-drawing prototype and sample image uploaded |
 | 03 — VolumeKnuckle | [03-volumeknuckle](03-volumeknuckle/) | Fist-controlled Mac volume with local music playback |
+| 04 — BlinkLock | [04-blinklock](04-blinklock/) | Blink and wink detection prototype |
 
 ## Project 01 — RockLook
 
@@ -89,3 +90,7 @@ See the [AirCanvas README](02-aircanvas/README.md) for installation, gesture ins
 Raise a closed fist to increase your Mac’s output volume and lower it to decrease it. The app starts in preview mode. Press **E** to enable gesture control, **M** to play or pause your local music, and **Q** to quit.
 
 See the [VolumeKnuckle README](03-volumeknuckle/README.md) for setup, audio-file requirements, controls, and troubleshooting.
+
+## Project 04 — BlinkLock
+
+An in-app demonstration that counts three quick blinks to cover its window and detects a wink to restore it. See the [BlinkLock README](04-blinklock/README.md) for setup, controls, and limitations.
