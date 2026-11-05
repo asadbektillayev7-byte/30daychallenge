@@ -221,3 +221,8 @@ __marimo__/
 01-rocklook/music.wav
 03-volumeknuckle/music.mp3
 03-volumeknuckle/music.wav
+
+# Local FaceEQ audio and Finder metadata
+05-faceeq/music.*
+05-faceeq/music-input.*
+.DS_Store

@@ -11,6 +11,7 @@ My 30-day Python learning challenge: one hour of practice each day, building sma
 | 02 — AirCanvas | [02-aircanvas](02-aircanvas/) | Pinch-drawing prototype and sample image uploaded |
 | 03 — VolumeKnuckle | [03-volumeknuckle](03-volumeknuckle/) | Fist-controlled Mac volume with local music playback |
 | 04 — BlinkLock | [04-blinklock](04-blinklock/) | Blink and wink detection prototype |
+| 05 — FaceEQ | [05-faceeq](05-faceeq/) | Head-controlled music seeking and playback pitch prototype |
 
 ## Project 01 — RockLook
 
@@ -94,3 +95,7 @@ See the [VolumeKnuckle README](03-volumeknuckle/README.md) for setup, audio-file
 ## Project 04 — BlinkLock
 
 An in-app demonstration that counts three quick blinks to cover its window and detects a wink to restore it. See the [BlinkLock README](04-blinklock/README.md) for setup, controls, and limitations.
+
+## Project 05 — FaceEQ
+
+Turn your face to seek through a local song and tilt your head to change pitch and playback speed. Press **C** to calibrate, **M** to play or pause, **R** to restart, and **Q** to quit. See the [FaceEQ README](05-faceeq/README.md) for setup, audio formats, controls, and troubleshooting.

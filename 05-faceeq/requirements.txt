@@ -1,0 +1,6 @@
+mediapipe==0.10.21
+opencv-contrib-python==4.11.0.86
+numpy==1.26.4
+sentencepiece==0.2.0
+av==19.0.2
+sounddevice==0.5.6
