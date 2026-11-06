@@ -13,6 +13,8 @@ My 30-day Python learning challenge: one hour of practice each day, building sma
 | 04 — BlinkLock | [04-blinklock](04-blinklock/) | Blink and wink detection prototype |
 | 05 — FaceEQ | [05-faceeq](05-faceeq/) | Head-controlled music seeking and playback pitch prototype |
 
+| 06 — BreathClock | [06-breathclock](06-breathclock/) | Microphone sound detection and experimental breathing-rate estimate |
+
 ## Project 01 — RockLook
 
 RockLook uses a webcam to estimate head movement and control a local audio file.
@@ -99,3 +101,7 @@ An in-app demonstration that counts three quick blinks to cover its window and d
 ## Project 05 — FaceEQ
 
 Turn your face to seek through a local song and tilt your head to change pitch and playback speed. Press **C** to calibrate, **M** to play or pause, **R** to restart, and **Q** to quit. See the [FaceEQ README](05-faceeq/README.md) for setup, audio formats, controls, and troubleshooting.
+
+## Project 06 — BreathClock
+
+A terminal microphone app that calibrates background noise, counts breath-like sounds, and estimates their rate. See the [BreathClock README](06-breathclock/README.md) for setup, calibration, and detection limitations.
