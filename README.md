@@ -12,7 +12,6 @@ My 30-day Python learning challenge: one hour of practice each day, building sma
 | 03 — VolumeKnuckle | [03-volumeknuckle](03-volumeknuckle/) | Fist-controlled Mac volume with local music playback |
 | 04 — BlinkLock | [04-blinklock](04-blinklock/) | Blink and wink detection prototype |
 | 05 — FaceEQ | [05-faceeq](05-faceeq/) | Head-controlled music seeking and playback pitch prototype |
-
 | 06 — BreathClock | [06-breathclock](06-breathclock/) | Microphone sound detection and experimental breathing-rate estimate |
 
 ## Project 01 — RockLook
