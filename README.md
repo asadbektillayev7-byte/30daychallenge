@@ -2,6 +2,10 @@
 
 My 30-day Python learning challenge: one hour of practice each day, building small interactive projects and keeping them together in one repository.
 
+**New to coding? Start with the [complete beginner’s guide](BEGINNER_GUIDE.md).** It covers downloads and setup, one repository for all 30 projects, files and Terminal commands, the daily build-and-upload routine, AI-assisted learning, and common fixes. The main instructions use macOS, with Windows differences included.
+
+Install the tools once, then prepare each project’s own environment and dependencies. Read its README for the exact files, controls, and limitations. You can run projects locally before uploading them to GitHub.
+
 ## Projects
 
 | Project | Folder | Progress |
