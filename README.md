@@ -13,6 +13,7 @@ My 30-day Python learning challenge: one hour of practice each day, building sma
 | 04 — BlinkLock | [04-blinklock](04-blinklock/) | Blink and wink detection prototype |
 | 05 — FaceEQ | [05-faceeq](05-faceeq/) | Head-controlled music seeking and playback pitch prototype |
 | 06 — BreathClock | [06-breathclock](06-breathclock/) | Microphone sound detection and experimental breathing-rate estimate |
+| 07 — KeyboardOscilloscope | [07-keyboardoscilloscope](07-keyboardoscilloscope/) | Keyboard tones, chords, and waveform preview |
 
 ## Project 01 — RockLook
 
@@ -104,3 +105,7 @@ Turn your face to seek through a local song and tilt your head to change pitch a
 ## Project 06 — BreathClock
 
 A terminal microphone app that calibrates background noise, counts breath-like sounds, and estimates their rate. See the [BreathClock README](06-breathclock/README.md) for setup, calibration, and detection limitations.
+
+## Project 07 — KeyboardOscilloscope
+
+Hold **Q**, **W**, **E**, and **R** to play tones and combine them into chords. A waveform preview shows the sum of the selected sine waves. See the [KeyboardOscilloscope README](07-keyboardoscilloscope/README.md) for setup, controls, and experiments.
