@@ -18,6 +18,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 05 — FaceEQ | [05-faceeq](05-faceeq/) | Head-controlled music seeking and playback pitch prototype |
 | 06 — BreathClock | [06-breathclock](06-breathclock/) | Microphone sound detection and experimental breathing-rate estimate |
 | 07 — KeyboardOscilloscope | [07-keyboardoscilloscope](07-keyboardoscilloscope/) | Keyboard tones, chords, and waveform preview |
+| 08 — PocketAgent | [08-pocketagent](08-pocketagent/) | Local Ollama chat with streamed replies and recent conversation history |
 
 ## Project 01 — RockLook
 
@@ -113,3 +114,7 @@ A terminal microphone app that calibrates background noise, counts breath-like s
 ## Project 07 — KeyboardOscilloscope
 
 Hold **Q**, **W**, **E**, and **R** to play tones and combine them into chords. A waveform preview shows the sum of the selected sine waves. See the [KeyboardOscilloscope README](07-keyboardoscilloscope/README.md) for setup, controls, and experiments.
+
+## Project 08 — PocketAgent
+
+A terminal AI assistant powered by a downloaded Ollama model. It streams replies, retains recent conversation history, and works offline after setup. See the [PocketAgent README](08-pocketagent/README.md) for installation, commands, offline checks, and limitations.
