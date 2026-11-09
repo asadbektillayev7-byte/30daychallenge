@@ -19,6 +19,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 06 — BreathClock | [06-breathclock](06-breathclock/) | Microphone sound detection and experimental breathing-rate estimate |
 | 07 — KeyboardOscilloscope | [07-keyboardoscilloscope](07-keyboardoscilloscope/) | Keyboard tones, chords, and waveform preview |
 | 08 — PocketAgent | [08-pocketagent](08-pocketagent/) | Local Ollama chat with streamed replies and recent conversation history |
+| 09 — WhisperDesk | [09-whisperdesk](09-whisperdesk/) | Short microphone recordings transcribed locally in Terminal |
 
 ## Project 01 — RockLook
 
@@ -118,3 +119,7 @@ Hold **Q**, **W**, **E**, and **R** to play tones and combine them into chords. 
 ## Project 08 — PocketAgent
 
 A terminal AI assistant powered by a downloaded Ollama model. It streams replies, retains recent conversation history, and works offline after setup. See the [PocketAgent README](08-pocketagent/README.md) for installation, commands, offline checks, and limitations.
+
+## Project 09 — WhisperDesk
+
+Record a six-second English voice clip and display a local Whisper transcription in Terminal. See the [WhisperDesk README](09-whisperdesk/README.md) for setup, the initial model download, microphone permissions, controls, and limitations.
