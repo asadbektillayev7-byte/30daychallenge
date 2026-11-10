@@ -20,6 +20,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 07 — KeyboardOscilloscope | [07-keyboardoscilloscope](07-keyboardoscilloscope/) | Keyboard tones, chords, and waveform preview |
 | 08 — PocketAgent | [08-pocketagent](08-pocketagent/) | Local Ollama chat with streamed replies and recent conversation history |
 | 09 — WhisperDesk | [09-whisperdesk](09-whisperdesk/) | Short microphone recordings transcribed locally in Terminal |
+| 10 — TerminalBrain | [10-terminalbrain](10-terminalbrain/) | Command runner with local AI error explanations |
 
 ## Project 01 — RockLook
 
@@ -123,3 +124,7 @@ A terminal AI assistant powered by a downloaded Ollama model. It streams replies
 ## Project 09 — WhisperDesk
 
 Record a six-second English voice clip and display a local Whisper transcription in Terminal. See the [WhisperDesk README](09-whisperdesk/README.md) for setup, the initial model download, microphone permissions, controls, and limitations.
+
+## Project 10 — TerminalBrain
+
+Run a short command and get a local Ollama explanation when it exits with an error. Suggestions are reviewed and applied manually. See the [TerminalBrain README](10-terminalbrain/README.md) for setup, an error-and-fix exercise, controls, and limitations.
