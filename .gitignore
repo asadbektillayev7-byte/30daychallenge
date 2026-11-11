@@ -226,3 +226,6 @@ __marimo__/
 05-faceeq/music.*
 05-faceeq/music-input.*
 .DS_Store
+
+# Local MoodSynth audio export
+11-moodsynth/mood.wav
