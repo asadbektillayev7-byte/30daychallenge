@@ -21,7 +21,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 08 — PocketAgent | [08-pocketagent](08-pocketagent/) | Local Ollama chat with streamed replies and recent conversation history |
 | 09 — WhisperDesk | [09-whisperdesk](09-whisperdesk/) | Short microphone recordings transcribed locally in Terminal |
 | 10 — TerminalBrain | [10-terminalbrain](10-terminalbrain/) | Command runner with local AI error explanations |
-| 11 — MoodSynth | [11-moodsynth](11-moodsynth/) | Local AI profile selection, ambient synthesis, and WAV export |
+| 11 — MoodSynth | [11-moodsynth](11-moodsynth/) | AI-controlled continuous synthesis, mood transitions, and WAV export |
 
 ## Project 01 — RockLook
 
@@ -132,4 +132,4 @@ Run a short command and get a local Ollama explanation when it exits with an err
 
 ## Project 11 — MoodSynth
 
-Describe a mood and let a local Ollama model choose an ambient sound profile. Python synthesizes a repeating loop that can be stopped, replayed, or exported as WAV. See the [MoodSynth README](11-moodsynth/README.md) for setup, controls, profiles, export instructions, and limitations.
+Describe a mood and let a local Ollama model choose waveform, tempo, pitch, brightness, layering, rhythm, and reverb. Python generates continuous stereo sound with transitions between moods and 20-second WAV export. See the [MoodSynth README](11-moodsynth/README.md) for setup, controls, parameter explanations, export instructions, and limitations.
