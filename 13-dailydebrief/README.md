@@ -2,7 +2,7 @@
 
 Run one command and a local AI model writes a short summary of your day from your git commits. DailyDebrief reads your recent commits, counts the files and lines you changed, and asks a small model running on your own computer for a three-part debrief: what you built, a sensible next step, and a one-line summary.
 
-> **New to coding?** Start with the general beginner guide. It explains installing tools, opening the correct folder, creating environments, saving files, and uploading changes.
+> **New to coding?** Start with [the general beginner guide](https://github.com/asadbektillayev7-byte/30daychallenge/blob/main/BEGINNER_GUIDE.md) . It explains installing tools, opening the correct folder, creating environments, saving files, and uploading changes.
 
 ## How it works
 
