@@ -22,6 +22,8 @@ Install the tools once, then prepare each project’s own environment and depend
 | 09 — WhisperDesk | [09-whisperdesk](09-whisperdesk/) | Short microphone recordings transcribed locally in Terminal |
 | 10 — TerminalBrain | [10-terminalbrain](10-terminalbrain/) | Command runner with local AI error explanations |
 | 11 — MoodSynth | [11-moodsynth](11-moodsynth/) | AI-controlled continuous synthesis, mood transitions, and WAV export |
+| 12 — SnapAnnotator | [12-snapannotator](12-snapannotator/) | Webcam snapshots labeled by a local YOLO object detector |
+| 13 — DailyDebrief | [13-dailydebrief](13-dailydebrief/) | Git activity statistics and an optional local AI debrief |
 
 ## Project 01 — RockLook
 
@@ -133,3 +135,11 @@ Run a short command and get a local Ollama explanation when it exits with an err
 ## Project 11 — MoodSynth
 
 Describe a mood and let a local Ollama model choose waveform, tempo, pitch, brightness, layering, rhythm, and reverb. Python generates continuous stereo sound with transitions between moods and 20-second WAV export. See the [MoodSynth README](11-moodsynth/README.md) for setup, controls, parameter explanations, export instructions, and limitations.
+
+## Project 12 — SnapAnnotator
+
+Take a webcam snapshot and use YOLOv8n to draw object labels, confidence scores, and boxes. See the [SnapAnnotator README](12-snapannotator/README.md) for setup, controls, image saving, and detection limits.
+
+## Project 13 — DailyDebrief
+
+Read recent local Git commits, calculate activity statistics, and optionally ask Ollama for a short debrief. See the [DailyDebrief README](13-dailydebrief/README.md) for setup, repository selection, report saving, and how to interpret the results.

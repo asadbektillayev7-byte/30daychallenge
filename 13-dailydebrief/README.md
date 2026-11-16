@@ -1,178 +1,210 @@
-# DailyDebrief · Day 13
+# DailyDebrief — Day 13
 
-Run one command and a local AI model writes a short summary of your day from your git commits. DailyDebrief reads your recent commits, counts the files and lines you changed, and asks a small model running on your own computer for a three-part debrief: what you built, a sensible next step, and a one-line summary.
+Turn recent Git commits into a short report about your programming work. Python calculates repository statistics, then an optional local AI model writes three short sections: **BUILT**, **NEXT**, and **ONE-LINER**.
 
-> **New to coding?** Start with [the general beginner guide](https://github.com/asadbektillayev7-byte/30daychallenge/blob/main/BEGINNER_GUIDE.md) . It explains installing tools, opening the correct folder, creating environments, saving files, and uploading changes.
+New to Python or Git? Start with the [general beginner guide](../BEGINNER_GUIDE.md). It explains installing tools, repositories, environments, commits, and pushing work to GitHub.
 
-## How it works
+## What it can tell you
 
-1. Python runs `git log` and `git status` on a repository.
-2. It collects the commits from the chosen time window: the time, the message, the files changed, and the lines added and removed.
-3. It shortens that data so the small model can handle it.
-4. Ollama's local model `qwen2.5:0.5b` returns a debrief as JSON.
-5. The program checks the reply and prints a report in the terminal.
+DailyDebrief runs `git log` and `git status` locally. It reads commit subjects, timestamps, changed paths, and added/deleted line counts. It shortens those details and sends them to Ollama on your own computer.
 
-This is a summary of git metadata, not a code review. The model only sees commit messages, file names, folder names and line counts. It does not read your code, so it cannot explain how anything works, and it cannot know about work you did not commit.
+It does not inspect source contents, code diffs, browser activity, or a record of your day. Uncommitted work is counted but not described. A summary of a commit named `update` will have much less useful evidence than one named `Add snapshot keyboard controls`.
+
+This is a single-run Terminal report, not a background watcher, scheduled job, or interactive chat. The AI's next step is a suggestion, not a task the app performs.
 
 ## Before starting
 
 You need:
 
-- Python 3.12 and `uv` (the same setup as the earlier days).
-- Git, with at least one commit in the window you are checking.
-- Ollama running locally with `qwen2.5:0.5b` downloaded.
-- Internet only for the first model download. After that it works offline.
+- Python 3.12 and uv.
+- **Command-line Git**, available as `git` in the Terminal used to run Python.
+- A local Git repository with commits reachable from its current checkout.
+- For AI text: Ollama running with `qwen2.5:0.5b` downloaded.
 
-There is nothing to install from PyPI. The program uses only Python's standard library, so no `requirements.txt` is needed. There is no cloud API, account or key. Your commit messages and file names are sent to the model on this computer only (`127.0.0.1:11434`) and are not uploaded anywhere.
+No third-party Python packages or `requirements.txt` are needed. The app uses the standard library. `--no-ai` works without Ollama and still produces the repository statistics.
+
+The supplied local model does not require a paid API key. Downloads need internet initially; reading a local repository and using the downloaded model can work offline. The example setup is macOS-first. On an Intel Mac, AI generation may be slow.
 
 ## Files
 
 | Item | Purpose |
 | --- | --- |
-| `main.py` | Reads git history, builds the model request, validates the reply, and prints the report |
-| `.gitignore` | Keeps the environment and saved reports out of Git |
-| `.venv/` | Local environment, excluded from Git |
-| `debrief.txt` | Local report created by `--save`, also excluded from Git |
-
-Cloning this repository does not include the Ollama model or the Python environment.
+| `main.py` | Git commands, statistics, optional AI request, and report output |
+| `.gitignore` | Excludes the environment, cache files, and local `debrief.txt` |
+| `.venv/` | Local Python environment |
+| `debrief.txt` | Report written only when `--save` reaches the report-saving step |
 
 ## First-time setup
 
-### 1. Open Ollama and check the model
+### 1. Check command-line Git
 
-Open the Ollama app and leave it running. In Terminal:
+In Terminal:
+
+```bash
+git --version
+```
+
+GitHub Desktop being installed does not guarantee that a standalone `git` command is available to this Python process. If macOS prompts you to install developer command-line tools, complete that setup and reopen Terminal. See [Git's macOS installation options](https://git-scm.com/downloads/mac).
+
+Check that your repository has history:
+
+```bash
+git -C ~/Documents/GitHub/30daychallenge log -5 --oneline
+```
+
+If this is a new, empty repository, create a meaningful commit before expecting a report. You do not have to push a commit to GitHub for this app to read it.
+
+### 2. Prepare Python
+
+These commands assume the repository lives at the example path. Substitute your actual location if needed.
+
+```bash
+cd ~/Documents/GitHub/30daychallenge/13-dailydebrief
+uv venv --python 3.12
+```
+
+Skip environment creation if this project's `.venv` exists. There is no package-installation step. The repository already includes `main.py`; when building manually, save it in this folder, outside `.venv`.
+
+### 3. Prepare the optional local model
+
+For AI output, open Ollama and leave it running. In Terminal:
 
 ```bash
 ollama list
 ```
 
-If the model is missing, download it while connected to the internet:
+If needed, download the exact configured model while online:
 
 ```bash
 ollama pull qwen2.5:0.5b
 ```
 
-### 2. Check git and your commits
+You can reuse the model from earlier days. For Ollama installation help, see the [PocketAgent README](../08-pocketagent/README.md).
+
+## Start with the statistics-only report
+
+This checks Git and the repository without waiting for an AI reply:
 
 ```bash
-git --version
-git -C ~/Documents/GitHub/30daychallenge log --since="48 hours ago" --oneline
+cd ~/Documents/GitHub/30daychallenge/13-dailydebrief
+.venv/bin/python main.py --no-ai --hours 72
 ```
 
-You should see a list of recent commits. If the list is empty, DailyDebrief has nothing to read, so make a commit first or use a longer window.
+The app prints a report and exits. If there are no commits in that window, it prints a short no-commits message instead. Increase the window if your latest work was earlier.
 
-### 3. Prepare the project folder
+## Add the AI debrief
 
-The commands below assume this repository is cloned into `~/Documents/GitHub/30daychallenge`. Substitute its actual location if yours differs.
-
-```bash
-cd ~/Documents/GitHub/30daychallenge
-mkdir -p 13-dailydebrief
-cd 13-dailydebrief
-uv venv --python 3.12
-```
-
-The source is included when you clone the repository. If building manually, save `main.py` directly inside `13-dailydebrief`, outside `.venv`, before running it. If the `.venv` already exists, skip `uv venv`; running it again asks whether to replace the existing environment.
-
-## Start DailyDebrief
-
-Keep Ollama open, then run:
+With Ollama running:
 
 ```bash
 cd ~/Documents/GitHub/30daychallenge/13-dailydebrief
 .venv/bin/python main.py
 ```
 
-By default it reads the git repository that contains this folder, looks back 24 hours, and asks the AI for a debrief. This is a terminal program. It prints a report and exits.
+By default it looks back **24 hours** in the Git repository containing the script's folder. It shows `AI is writing your debrief. Please wait...`, then displays the report with:
 
-## Options
+- **BUILT:** a short interpretation of the committed work.
+- **NEXT:** a proposed next step based on that metadata.
+- **ONE-LINER:** a short summary.
 
-| Option | Result |
+If the model connection or JSON reply fails, the program normally still prints the calculated Git report without AI text. Compare any generated claims against the commit list; the small model can invent details despite its instructions.
+
+## Options and examples
+
+All options go after `main.py`. The program does not have a separate command prompt.
+
+| Option | Meaning |
 | --- | --- |
-| `--hours 72` | Look back 72 hours instead of 24 |
-| `--repo ~/path/to/project` | Read a different repository (any folder inside it works) |
-| `--no-ai` | Show the git statistics and commit list without calling Ollama |
-| `--save` | Also save the report as `debrief.txt` beside `main.py` |
+| `--hours 72` | Use a rolling 72-hour window instead of 24; must be an integer of at least 1 |
+| `--repo PATH` | Analyze the local Git repository containing that path |
+| `--no-ai` | Skip Ollama and show only calculated information |
+| `--save` | Write the completed report to `debrief.txt` beside this script |
+| `--help` | Show command-line help and exit |
 
-Options can be combined:
+From the Day 13 folder, combine options:
 
 ```bash
 .venv/bin/python main.py --hours 72 --save
-.venv/bin/python main.py --repo ~/Documents/GitHub/another-project --no-ai
+.venv/bin/python main.py --hours 168 --no-ai
 ```
 
-Saving again replaces the same file, so rename or copy `debrief.txt` first if you want to keep an earlier one.
+To select another repository, pass an actual existing folder, not a GitHub URL. For example, replace the following path with one you own:
 
-## What the report shows
+```bash
+.venv/bin/python main.py --repo "$HOME/Documents/GitHub/another-project" --no-ai
+```
 
-- Repository name, time window and the time of the report.
-- Number of commits, files changed, and lines added and removed.
-- Number of uncommitted changed files, counted from `git status`.
-- The most touched top-level folders, for example `12-snapannotator (6)`.
-- Your ten most recent commits.
-- The AI debrief:
-  - **BUILT** describes what was worked on.
-  - **NEXT** suggests a next step based on the data.
-  - **ONE-LINER** summarizes the day in one sentence.
+**Changing Terminal's current folder does not change the default repository.** Without `--repo`, the default stays the folder containing `main.py`. A nested project folder also resolves to the enclosing Git repository's root, not just that one subfolder. It does not scan all repositories on your computer.
 
-If the AI request fails, or the model returns an invalid reply, the program prints the git summary without the debrief. The statistics are calculated by Python, not by the model, so they do not depend on the AI.
+## Understand the numbers
 
-## Limits and what to expect
+| Report field | What the code counts |
+| --- | --- |
+| Commits | Entries returned by `git log` in the selected window on the current checkout's reachable history |
+| Files | Unique path strings in the returned per-commit file lists |
+| Added / removed lines | Sums from `git log --numstat` over those commits; not the final net diff or a measure of productivity |
+| Uncommitted changed files | Nonempty lines from `git status --porcelain`; a collapsed untracked directory may count as one entry rather than every file inside it |
+| Most touched folders | Up to five top-level path groups, counted by file appearances across commits; `(root)` represents root-level files |
+| Recent commits | Up to ten subjects and timestamps in the printed report |
 
-- The request is shortened to fit a 2,048-token context. At most 30 commits, six files per commit and about 3,500 characters are sent. Extra commits are counted in the statistics but not shown to the model.
-- Line counts come from git. Binary files such as images do not have line counts, so they are skipped in the totals.
-- Merge commits can show fewer file changes than regular commits.
-- Only committed work is summarized. Uncommitted changes are counted but not described.
-- `qwen2.5:0.5b` is a very small model. Its summary can be generic, repetitive or slightly wrong, and it may not understand a vague commit message such as "update". Always compare it with the commit list printed above it.
-- Time is shown in your computer's local time zone, using the commit date.
-- Better commit messages produce better debriefs.
+A file edited in several commits contributes several times to the change totals. Binary files have no numeric line counts in `--numstat`, so their lines are not added to the totals. Merge commits may appear without ordinary file statistics. These are Git activity indicators, not an assessment of code quality or all time spent learning.
+
+The window follows Git's `--since` behavior and the local clock. Printed commit timestamps use the author date formatted by Git; the report heading uses the computer's current date and time. This is a rolling-hour window, not automatically a midnight-to-midnight calendar day.
+
+## Limits on the AI request
+
+Statistics are calculated from all returned commits, but the model gets a shortened context:
+
+- At most 30 recent commits, with up to six paths per commit.
+- Commit subjects shortened to 120 characters in the request.
+- The assembled context cut to 3,500 characters, potentially truncating its final entry.
+- A requested 2,048-token model context and 260-token generation cap.
+- Each returned AI field must be nonempty text and is limited to 400 characters by the client.
+
+Character limits do not guarantee that every possible filename or language fits the token context. The model can miss work excluded by truncation. It receives a fresh request for each run, without conversation history.
+
+## Saving and offline use
+
+Use `--save` to write `13-dailydebrief/debrief.txt`. This destination remains beside the script even when `--repo` selects another repository. Saving again replaces the same file. Copy it elsewhere first if you want an archive.
+
+If no commits are found, the program returns before report creation: **it does not write or refresh `debrief.txt`, even with `--save`**. An older report can remain on disk. If AI fails but Git data exists, the statistics-only report can still be saved.
+
+No report is explicitly saved without `--save`. The local `.gitignore` excludes `debrief.txt`; renamed reports are not automatically covered by that filename rule.
+
+The Git commands read local data without fetching, pushing, or editing the repository. For the supplied model tag, AI requests go to `127.0.0.1:11434`, meaning this computer. Commit subjects and file paths are sent to that local service, not to GitHub by this script. Saved reports may repeat sensitive filenames or messages, so review them before sharing.
+
+For an offline check, first run `--no-ai` with Wi-Fi off. Then, with the model already downloaded and Ollama running, repeat without `--no-ai` to check local AI generation.
 
 ## Check that it works
 
-1. Run `ollama list` and confirm `qwen2.5:0.5b` is installed.
-2. Run `.venv/bin/python main.py --no-ai` and confirm that you see commit counts, folders and your recent commits.
-3. Compare the commit count with `git log --since="24 hours ago" --oneline` in the same repository.
-4. Run `.venv/bin/python main.py` with Ollama open and wait for the AI debrief.
-5. Check that BUILT mentions work that appears in the commit list.
-6. Run `.venv/bin/python main.py --hours 1` in a quiet period and confirm you see the "No commits" message instead of an error.
-7. Run it with `--save` and open `debrief.txt`.
-8. Quit Ollama and run it again to confirm you see the `Could not reach Ollama` message, followed by the git summary.
+1. Run `--help` and inspect the available options.
+2. Run `--no-ai --hours 168` to cover recent activity.
+3. Compare the commit list with `git log --since="168 hours ago" --oneline` in the selected repository. The printed report lists at most ten commits.
+4. Run without `--no-ai`, inspect BUILT/NEXT/ONE-LINER, and check their claims against Git data.
+5. Run with `--save`; open `debrief.txt` and check its timestamp and repository name.
+6. Try a real second repository with `--repo` and confirm the heading changes.
+7. For a no-commits test, use a repository/window you know is empty. A one-hour window will not be empty if you just made a commit.
+8. Repeat local statistics and AI checks offline if you want to verify both paths.
 
-These are interaction checks for your own computer. They do not establish that the AI's wording is accurate.
-
-## Settings you can change
-
-Open `main.py`, change one setting at a time, save with ⌘S, and run it again.
-
-- `MODEL`: the Ollama model tag. Download that tag before selecting it. A larger model can write better summaries, but it uses more memory and CPU time.
-- `MAX_COMMITS`: how many commits are sent to the model.
-- `MAX_FILES_PER_COMMIT`: how many file names are listed for each commit.
-- `MAX_CONTEXT_CHARS`: the size limit for the request.
-- `--hours`: the default is 24, set in the argument parser.
+The program exits on completion; use Control+C to interrupt a long-running request. Git commands have a 30-second timeout and the Ollama request uses a 180-second socket timeout.
 
 ## Troubleshooting
 
 | Problem | What to check |
 | --- | --- |
-| `Git was not found` | Install git, then open a new Terminal window. |
-| `is not inside a git repository` | Use `--repo` with a folder inside a git project, or run it from one. |
-| `No commits in the last 24 hours` | Make a commit, or use a longer window, for example `--hours 72`. |
-| `Could not reach Ollama` | Open the Ollama app and try again. |
-| `Ollama HTTP error 404` | The model is missing. Run `ollama pull qwen2.5:0.5b`. |
-| `Could not get an AI debrief` | The small model returned incomplete or invalid JSON. Run it again, or use a larger model. |
-| The AI summary is vague or wrong | Compare it with the commit list. Use clearer commit messages, or try a larger model. |
-| The report shows fewer commits than expected | Check the time window with `--hours`, and check that you are reading the right repository. |
-| The AI request is slow | The first request loads the model into memory. Later requests are faster. Close other heavy apps. |
-| `can't open file main.py` | Use `pwd` and `ls -a` to check the folder and the filename. |
-| `debrief.txt` appears in Git | Check that `.gitignore` is in the project folder and lists `debrief.txt`. |
+| `Git was not found` | Install command-line Git and reopen the Terminal used to run Python. |
+| `is not inside a git repository` | Pass a real local path inside a cloned or initialized repository with `--repo`. Changing directories alone does not replace the default. |
+| No commits found | Check the selected repository and branch; use a longer `--hours` value. Unsaved or uncommitted work does not create a Git log entry. |
+| No saved report after `--save` | The no-commits branch does not save; otherwise check the printed path and write error. An old file may remain. |
+| Could not reach Ollama | Open Ollama, check the configured local model, or use `--no-ai`. |
+| HTTP 404 | Check the model tag with `ollama list`; the endpoint may also be unavailable. |
+| Invalid AI debrief | The small model may return incomplete JSON or missing fields. Retry, use `--no-ai`, or deliberately select a suitable downloaded model. |
+| AI summary is vague or wrong | Check the commit subjects and truncation limits. Clearer commit messages provide more evidence, but cannot guarantee accurate AI text. |
+| Counts differ from expectation | Check the time window, current checkout, repeated edits, merge entries, and binary files. |
+| Missing source or interpreter | Confirm the saved filename and project path with `pwd` and `ls -a`; create its environment if missing. |
 
-## Privacy
+## Settings and learning
 
-Commit messages, file names and folder names are sent to the model on your own computer. Nothing is uploaded. Reports are saved only when you use `--save`. If your commit messages or file names contain private information, remember that `debrief.txt` repeats them, which is why it is kept out of Git.
+Edit `MODEL`, `MAX_COMMITS`, `MAX_FILES_PER_COMMIT`, or `MAX_CONTEXT_CHARS` in `main.py`, save, and rerun. Changing a model requires downloading that tag first; larger models use more resources.
 
-## Learning and implementation
-
-Built with AI guidance: running git from Python with `subprocess`, parsing `git log --numstat` output, counting with `collections.Counter`, shortening data for a small model's context window, requesting structured JSON from Ollama, validating the reply, handling errors without crashing, and adding command-line options with `argparse`.
-
-The project idea comes from the BuildCored challenge: AI reads your git commits and writes a summary of your day. This repository's implementation is a small version of that idea and uses git only.
-
+Built with AI assistance: subprocess calls, Git metadata parsing, `Counter`, request-size limits, structured local-model output, validation, error handling, and `argparse`. The statistics are computed by Python; the prose is model-generated and still needs review.
