@@ -24,6 +24,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 11 — MoodSynth | [11-moodsynth](11-moodsynth/) | AI-controlled continuous synthesis, mood transitions, and WAV export |
 | 12 — SnapAnnotator | [12-snapannotator](12-snapannotator/) | Webcam snapshots labeled by a local YOLO object detector |
 | 13 — DailyDebrief | [13-dailydebrief](13-dailydebrief/) | Git activity statistics and an optional local AI debrief |
+| 14 — RegisterBot | [14-registerbot](14-registerbot/) | Tiny CPU simulator with registers, an ALU, and an optional AI narrator |
 
 ## Project 01 — RockLook
 
@@ -143,3 +144,7 @@ Take a webcam snapshot and use YOLOv8n to draw object labels, confidence scores,
 ## Project 13 — DailyDebrief
 
 Read recent local Git commits, calculate activity statistics, and optionally ask Ollama for a short debrief. See the [DailyDebrief README](13-dailydebrief/README.md) for setup, repository selection, report saving, and how to interpret the results.
+
+## Project 14 — RegisterBot
+
+A tiny CPU simulator that runs factorial and Fibonacci programs step by step. See the [RegisterBot README](14-registerbot/README.md).
