@@ -26,6 +26,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 13 — DailyDebrief | [13-dailydebrief](13-dailydebrief/) | Git activity statistics and an optional local AI debrief |
 | 14 — RegisterBot | [14-registerbot](14-registerbot/) | Tiny CPU simulator with registers, an ALU, and an optional AI narrator |
 | 15 — AudioScope | [15-audioscope](15-audioscope/) | Live microphone frequency bars with musical note detection |
+| 16 — EchoKiller | [16-echokiller](16-echokiller/) | Voice echo added, detected, and removed with an FIR filter |
 
 ## Project 01 — RockLook
 
@@ -153,3 +154,7 @@ A tiny CPU simulator that runs factorial and Fibonacci programs step by step. Se
 ## Project 15 — AudioScope
 
 A live microphone spectrum that shows sound as 32 frequency bars and names the note you sing or whistle. See the [AudioScope README](15-audioscope/README.md).
+
+## Project 16 — EchoKiller
+
+Records your voice, adds an echo, finds the echo's delay and loudness, and removes it with a two-tap FIR filter. See the [EchoKiller README](16-echokiller/README.md).
