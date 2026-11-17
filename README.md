@@ -27,6 +27,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 14 — RegisterBot | [14-registerbot](14-registerbot/) | Tiny CPU simulator with registers, an ALU, and an optional AI narrator |
 | 15 — AudioScope | [15-audioscope](15-audioscope/) | Live microphone frequency bars with musical note detection |
 | 16 — EchoKiller | [16-echokiller](16-echokiller/) | Voice echo added, detected, and removed with an FIR filter |
+| 17 — DutyGlow | [17-dutyglow](17-dutyglow/) | PWM duty-cycle slider, square wave, and a dimming virtual LED |
 
 ## Project 01 — RockLook
 
@@ -158,3 +159,7 @@ A live microphone spectrum that shows sound as 32 frequency bars and names the n
 ## Project 16 — EchoKiller
 
 Records your voice, adds an echo, finds the echo's delay and loudness, and removes it with a two-tap FIR filter. See the [EchoKiller README](16-echokiller/README.md).
+
+## Project 17 — DutyGlow
+
+A PWM simulator: slide the duty cycle, watch the square wave and average voltage change, and see a virtual LED dim, blink in slow motion, or breathe. See the [DutyGlow README](17-dutyglow/README.md).
