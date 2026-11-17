@@ -25,6 +25,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 12 — SnapAnnotator | [12-snapannotator](12-snapannotator/) | Webcam snapshots labeled by a local YOLO object detector |
 | 13 — DailyDebrief | [13-dailydebrief](13-dailydebrief/) | Git activity statistics and an optional local AI debrief |
 | 14 — RegisterBot | [14-registerbot](14-registerbot/) | Tiny CPU simulator with registers, an ALU, and an optional AI narrator |
+| 15 — AudioScope | [15-audioscope](15-audioscope/) | Live microphone frequency bars with musical note detection |
 
 ## Project 01 — RockLook
 
@@ -148,3 +149,7 @@ Read recent local Git commits, calculate activity statistics, and optionally ask
 ## Project 14 — RegisterBot
 
 A tiny CPU simulator that runs factorial and Fibonacci programs step by step. See the [RegisterBot README](14-registerbot/README.md).
+
+## Project 15 — AudioScope
+
+A live microphone spectrum that shows sound as 32 frequency bars and names the note you sing or whistle. See the [AudioScope README](15-audioscope/README.md).
