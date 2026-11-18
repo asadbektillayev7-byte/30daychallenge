@@ -28,6 +28,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 15 — AudioScope | [15-audioscope](15-audioscope/) | Live microphone frequency bars with musical note detection |
 | 16 — EchoKiller | [16-echokiller](16-echokiller/) | Voice echo added, detected, and removed with an FIR filter |
 | 17 — DutyGlow | [17-dutyglow](17-dutyglow/) | PWM duty-cycle slider, square wave, and a dimming virtual LED |
+| 18 — DepthPaint | [18-depthpaint](18-depthpaint/) | Webcam depth estimation with MiDaS, painted like a thermal camera |
 
 ## Project 01 — RockLook
 
@@ -163,3 +164,7 @@ Records your voice, adds an echo, finds the echo's delay and loudness, and remov
 ## Project 17 — DutyGlow
 
 A PWM simulator: slide the duty cycle, watch the square wave and average voltage change, and see a virtual LED dim, blink in slow motion, or breathe. See the [DutyGlow README](17-dutyglow/README.md).
+
+## Project 18 — DepthPaint
+
+A webcam depth map: the MiDaS neural network estimates what is near and far in every frame, and DepthPaint paints it in thermal-camera colors or as a depth grid. See the [DepthPaint README](18-depthpaint/README.md).
