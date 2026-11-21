@@ -30,6 +30,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 17 — DutyGlow | [17-dutyglow](17-dutyglow/) | PWM duty-cycle slider, square wave, and a dimming virtual LED |
 | 18 — DepthPaint | [18-depthpaint](18-depthpaint/) | Webcam depth estimation with MiDaS, painted like a thermal camera |
 | 19 — BusTalk | [19-bustalk](19-bustalk/) | Animated I2C conversations between a master chip and simulated sensors |
+| 20 — SenseDeck | [20-sensedeck](20-sensedeck/) | Live dashboard and CSV logger for mic, camera, CPU, and network |
 
 ## Project 01 — RockLook
 
@@ -173,3 +174,7 @@ A webcam depth map: the MiDaS neural network estimates what is near and far in e
 ## Project 19 — BusTalk
 
 An I2C simulator: watch a master chip talk to sensors over two wires, with animated bytes, a logic-analyzer timeline, ACK and NACK, and a conversation log. See the [BusTalk README](19-bustalk/README.md).
+
+## Project 20 — SenseDeck
+
+Turn your laptop into a live sensor dashboard: microphone level, camera brightness, CPU load, and network speed with 60-second graphs, alert lines, and CSV recording. See the [SenseDeck README](20-sensedeck/README.md).
