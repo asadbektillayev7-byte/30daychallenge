@@ -31,6 +31,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 18 — DepthPaint | [18-depthpaint](18-depthpaint/) | Webcam depth estimation with MiDaS, painted like a thermal camera |
 | 19 — BusTalk | [19-bustalk](19-bustalk/) | Animated I2C conversations between a master chip and simulated sensors |
 | 20 — SenseDeck | [20-sensedeck](20-sensedeck/) | Live dashboard and CSV logger for mic, camera, CPU, and network |
+| 21 — WaveCast | [21-wavecast](21-wavecast/) | Send a signal as UDP packets and watch it on a live oscilloscope |
 
 ## Project 01 — RockLook
 
@@ -178,3 +179,7 @@ An I2C simulator: watch a master chip talk to sensors over two wires, with anima
 ## Project 20 — SenseDeck
 
 Turn your laptop into a live sensor dashboard: microphone level, camera brightness, CPU load, and network speed with 60-second graphs, alert lines, and CSV recording. See the [SenseDeck README](20-sensedeck/README.md).
+
+## Project 21 — WaveCast
+
+A network oscilloscope: a sender turns waves or your microphone into UDP packets, and the scope draws them live with a trigger, zoom, and lost-packet and delay counters. See the [WaveCast README](21-wavecast/README.md).
