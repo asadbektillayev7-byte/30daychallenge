@@ -32,6 +32,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 19 — BusTalk | [19-bustalk](19-bustalk/) | Animated I2C conversations between a master chip and simulated sensors |
 | 20 — SenseDeck | [20-sensedeck](20-sensedeck/) | Live dashboard and CSV logger for mic, camera, CPU, and network |
 | 21 — WaveCast | [21-wavecast](21-wavecast/) | Send a signal as UDP packets and watch it on a live oscilloscope |
+| 22 — SketchNet | [22-sketchnet](22-sketchnet/) | Photo of a hand-drawn circuit → AI parts list, schematic, netlist, and solved currents |
 
 ## Project 01 — RockLook
 
@@ -183,3 +184,7 @@ Turn your laptop into a live sensor dashboard: microphone level, camera brightne
 ## Project 21 — WaveCast
 
 A network oscilloscope: a sender turns waves or your microphone into UDP packets, and the scope draws them live with a trigger, zoom, and lost-packet and delay counters. See the [WaveCast README](21-wavecast/README.md).
+
+## Project 22 — SketchNet
+
+Draw a circuit on paper and photograph it: a local vision model reads the parts, and SketchNet redraws a clean schematic, writes a SPICE netlist, and solves every voltage and current. See the [SketchNet README](22-sketchnet/README.md).

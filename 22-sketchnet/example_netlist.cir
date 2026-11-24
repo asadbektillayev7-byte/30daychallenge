@@ -1,0 +1,7 @@
+* SketchNet netlist
+V1 N1 0 DC 10
+R1 N1 N2 220
+DLED N2 0 LED
+.model LED D(Is=1e-20 N=1.8)
+.op
+.end

@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+sketchnet.png
+circuit.json
+circuit.cir
+circuit.jpg
