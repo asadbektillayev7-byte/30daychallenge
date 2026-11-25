@@ -33,6 +33,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 20 — SenseDeck | [20-sensedeck](20-sensedeck/) | Live dashboard and CSV logger for mic, camera, CPU, and network |
 | 21 — WaveCast | [21-wavecast](21-wavecast/) | Send a signal as UDP packets and watch it on a live oscilloscope |
 | 22 — SketchNet | [22-sketchnet](22-sketchnet/) | Photo of a hand-drawn circuit → AI parts list, schematic, netlist, and solved currents |
+| 23 — HueHunter | [23-huehunter](23-huehunter/) | Click a colored object and track it live with trail, prediction, and steering |
 
 ## Project 01 — RockLook
 
@@ -188,3 +189,7 @@ A network oscilloscope: a sender turns waves or your microphone into UDP packets
 ## Project 22 — SketchNet
 
 Draw a circuit on paper and photograph it: a local vision model reads the parts, and SketchNet redraws a clean schematic, writes a SPICE netlist, and solves every voltage and current. See the [SketchNet README](22-sketchnet/README.md).
+
+## Project 23 — HueHunter
+
+A webcam color tracker: click an object to teach its color, then follow it with a confidence box, trail, speed, prediction when it hides, and LEFT/RIGHT/UP/DOWN steering for a robot. See the [HueHunter README](23-huehunter/README.md).
