@@ -34,6 +34,7 @@ Install the tools once, then prepare each project’s own environment and depend
 | 21 — WaveCast | [21-wavecast](21-wavecast/) | Send a signal as UDP packets and watch it on a live oscilloscope |
 | 22 — SketchNet | [22-sketchnet](22-sketchnet/) | Photo of a hand-drawn circuit → AI parts list, schematic, netlist, and solved currents |
 | 23 — HueHunter | [23-huehunter](23-huehunter/) | Click a colored object and track it live with trail, prediction, and steering |
+| 24 — PinPoint | [24-pinpoint](24-pinpoint/) | Ask hardware datasheets questions and get answers with page citations |
 
 ## Project 01 — RockLook
 
@@ -193,3 +194,7 @@ Draw a circuit on paper and photograph it: a local vision model reads the parts,
 ## Project 23 — HueHunter
 
 A webcam color tracker: click an object to teach its color, then follow it with a confidence box, trail, speed, prediction when it hides, and LEFT/RIGHT/UP/DOWN steering for a robot. See the [HueHunter README](23-huehunter/README.md).
+
+## Project 24 — PinPoint
+
+Datasheet question answering with RAG: BM25 search finds the right passages in your PDFs, a local Ollama model answers only from them, and every answer cites file, section, and page. See the [PinPoint README](24-pinpoint/README.md).
